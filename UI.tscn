@@ -1,0 +1,132 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://UI.gd" id="1"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1")
+
+[node name="Root" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="BarsWrap" type="Control" parent="Root"]
+position = Vector2(16, 16)
+size = Vector2(260, 80)
+mouse_filter = 2
+
+[node name="FuelLabel" type="Label" parent="Root/BarsWrap"]
+text = "ТОПЛИВО"
+theme_override_colors/font_color = Color(0.81, 0.91, 1, 0.8)
+theme_override_font_sizes/font_size = 11
+
+[node name="FuelBarBG" type="ColorRect" parent="Root/BarsWrap"]
+position = Vector2(0, 16)
+size = Vector2(260, 14)
+color = Color(1, 1, 1, 0.08)
+
+[node name="FuelFill" type="ColorRect" parent="Root/BarsWrap/FuelBarBG"]
+size = Vector2(260, 14)
+color = Color(0.3, 0.85, 1, 1)
+
+[node name="HullLabel" type="Label" parent="Root/BarsWrap"]
+position = Vector2(0, 38)
+text = "КОРПУС"
+theme_override_colors/font_color = Color(0.81, 0.91, 1, 0.8)
+theme_override_font_sizes/font_size = 11
+
+[node name="HullBarBG" type="ColorRect" parent="Root/BarsWrap"]
+position = Vector2(0, 54)
+size = Vector2(260, 14)
+color = Color(1, 1, 1, 0.08)
+
+[node name="HullFill" type="ColorRect" parent="Root/BarsWrap/HullBarBG"]
+size = Vector2(260, 14)
+color = Color(0.34, 1, 0.56, 1)
+
+[node name="Stats" type="VBoxContainer" parent="Root"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_top = 16.0
+offset_right = -16.0
+
+[node name="ScoreLabel" type="Label" parent="Root/Stats"]
+text = "Очки: 0"
+horizontal_alignment = 2
+
+[node name="LevelLabel" type="Label" parent="Root/Stats"]
+text = "Уровень: 1"
+horizontal_alignment = 2
+
+[node name="KillsLabel" type="Label" parent="Root/Stats"]
+text = "Убито пиратов: 0"
+horizontal_alignment = 2
+
+[node name="NoticeLabel" type="Label" parent="Root"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 70.0
+offset_right = 200.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 20
+text = ""
+
+[node name="WarnLabel" type="Label" parent="Root"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = -32.0
+offset_right = -16.0
+horizontal_alignment = 2
+theme_override_colors/font_color = Color(1, 0.36, 0.36, 1)
+text = "ТОПЛИВО НА НУЛЕ — двигатели заглохли"
+
+[node name="ControlsLabel" type="Label" parent="Root"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -48.0
+offset_right = 760.0
+offset_bottom = -8.0
+theme_override_colors/font_color = Color(0.81, 0.91, 1, 0.55)
+theme_override_font_sizes/font_size = 11
+text = "ЛКМ — тяга вперёд (по курсору) | ПКМ — огонь | W A S D — маневрирование\nSHIFT — тормоз | ПРОБЕЛ — форсаж | корабль всегда смотрит на курсор"
+
+[node name="GameOverPanel" type="ColorRect" parent="Root"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.016, 0.024, 0.047, 0.88)
+mouse_filter = 1
+
+[node name="VBox" type="VBoxContainer" parent="Root/GameOverPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Root/GameOverPanel/VBox"]
+text = "КОРАБЛЬ УНИЧТОЖЕН"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 0.36, 0.36, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="FinalScoreLabel" type="Label" parent="Root/GameOverPanel/VBox"]
+text = "Финальный счёт: 0"
+horizontal_alignment = 1
+
+[node name="FinalLevelLabel" type="Label" parent="Root/GameOverPanel/VBox"]
+text = "Достигнутый уровень: 1"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="Root/GameOverPanel/VBox"]
+text = "ЗАНОВО"

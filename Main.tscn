@@ -1,18 +1,61 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene format=3 uid="uid://ddx2flpaah7np"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1"]
-[ext_resource type="PackedScene" path="res://entities/Ship.tscn" id="2"]
-[ext_resource type="Script" path="res://Starfield.gd" id="3"]
-[ext_resource type="PackedScene" path="res://UI.tscn" id="4"]
+[ext_resource type="Script" uid="uid://c2no5q8w7fsrx" path="res://Main.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://b5ttswe5ox53x" path="res://entities/Ship.tscn" id="2"]
+[ext_resource type="Script" uid="uid://b1eex6jhkme2j" path="res://Starfield.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://bwkqklotyt25v" path="res://UI.tscn" id="4"]
+[ext_resource type="Shader" uid="uid://c385wv3jtcml3" path="res://Assets/Shader/StarField.gdshader" id="5_fos0i"]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3dxm6"]
+shader = ExtResource("5_fos0i")
+shader_parameter/dimensions = Vector2(1920, 1080)
+shader_parameter/small_stars = 600.0
+shader_parameter/small_stars_far_size = 0.60000000894072
+shader_parameter/small_stars_near_size = 0.10000000149012
+shader_parameter/large_stars = 450.0
+shader_parameter/large_stars_far_size = 0.5000000074506
+shader_parameter/large_stars_near_size = 0.5000000074506
+shader_parameter/far_stars_color = Color(0.5, 0, 1, 1)
+shader_parameter/near_stars_color = Color(1, 1, 1, 1)
+shader_parameter/base_scroll_speed = 0.0
+shader_parameter/additional_scroll_speed = 0.00999999977648
+shader_parameter/pixel_snap_motion = false
+shader_parameter/pixel_steps_per_second = 2.0
+shader_parameter/hard_edge_stars = true
+shader_parameter/twinkle_enabled = true
+shader_parameter/twinkle_speed = 4.0000000596048
+shader_parameter/twinkle_amount = 0.31999999284736
+shader_parameter/nebula_enabled = true
+shader_parameter/nebula_color_a = Color(0.35, 0.05, 0.55, 1)
+shader_parameter/nebula_color_b = Color(0.05, 0.25, 0.55, 1)
+shader_parameter/nebula_scale = 8.80000012367996
+shader_parameter/nebula_speed = 0.0550000026125
+shader_parameter/nebula_intensity = 0.32999999262384
+shader_parameter/comets_enabled = false
+shader_parameter/comet_interval = 1.0
+shader_parameter/comet_chance = 0.4
+shader_parameter/comet_speed = 1.4
+shader_parameter/comet_length = 0.14
+shader_parameter/comet_color = Color(1, 0.95, 0.85, 1)
+
+[node name="Main" type="Node2D" unique_id=654254227]
 script = ExtResource("1")
 
-[node name="Starfield" type="Node2D" parent="."]
+[node name="Starfield" type="Node2D" parent="." unique_id=1765441152]
+visible = false
 script = ExtResource("3")
 
-[node name="Entities" type="Node2D" parent="."]
+[node name="Entities" type="Node2D" parent="." unique_id=1058375792]
 
-[node name="Ship" parent="." instance=ExtResource("2")]
+[node name="Ship" parent="." unique_id=1557490148 instance=ExtResource("2")]
 
-[node name="UI" parent="." instance=ExtResource("4")]
+[node name="UI" parent="." unique_id=1173915400 instance=ExtResource("4")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=535408752]
+z_index = -77
+material = SubResource("ShaderMaterial_3dxm6")
+offset_left = -5574.0
+offset_top = -3922.0
+offset_right = 5614.0
+offset_bottom = 3962.0
+color = Color(0, 0, 0, 1)

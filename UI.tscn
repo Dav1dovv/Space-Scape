@@ -1,91 +1,125 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://bwkqklotyt25v"]
 
-[ext_resource type="Script" path="res://UI.gd" id="1"]
+[ext_resource type="Script" uid="uid://cdwdv00aqqjtk" path="res://UI.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://bsyym2plok31c" path="res://Assets/Fonts/Conthrax-SemiBold.otf" id="2_qui0h"]
+[ext_resource type="FontFile" uid="uid://dl6i1rmo447yj" path="res://Assets/Fonts/Zekton-Regular.otf" id="3_vrfts"]
+[ext_resource type="FontFile" uid="uid://dj2oqg7k2rxlo" path="res://Assets/Fonts/HemiHead-Bold.otf" id="4_0mc3e"]
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" unique_id=164162451]
 script = ExtResource("1")
 
-[node name="Root" type="Control" parent="."]
+[node name="Root" type="Control" parent="." unique_id=1816326159]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="BarsWrap" type="Control" parent="Root"]
-position = Vector2(16, 16)
-size = Vector2(260, 80)
+[node name="BarsWrap" type="Control" parent="Root" unique_id=1110343720]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 276.0
+offset_bottom = 96.0
 mouse_filter = 2
 
-[node name="FuelLabel" type="Label" parent="Root/BarsWrap"]
-text = "ТОПЛИВО"
+[node name="FuelLabel" type="Label" parent="Root/BarsWrap" unique_id=2064870123]
+layout_mode = 0
 theme_override_colors/font_color = Color(0.81, 0.91, 1, 0.8)
+theme_override_fonts/font = ExtResource("2_qui0h")
 theme_override_font_sizes/font_size = 11
+text = "ТОПЛИВО"
 
-[node name="FuelBarBG" type="ColorRect" parent="Root/BarsWrap"]
-position = Vector2(0, 16)
-size = Vector2(260, 14)
+[node name="FuelBarBG" type="ColorRect" parent="Root/BarsWrap" unique_id=1071158477]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 260.0
+offset_bottom = 30.0
 color = Color(1, 1, 1, 0.08)
 
-[node name="FuelFill" type="ColorRect" parent="Root/BarsWrap/FuelBarBG"]
-size = Vector2(260, 14)
+[node name="FuelFill" type="ColorRect" parent="Root/BarsWrap/FuelBarBG" unique_id=430643407]
+layout_mode = 0
+offset_right = 260.0
+offset_bottom = 14.0
 color = Color(0.3, 0.85, 1, 1)
 
-[node name="HullLabel" type="Label" parent="Root/BarsWrap"]
-position = Vector2(0, 38)
-text = "КОРПУС"
+[node name="HullLabel" type="Label" parent="Root/BarsWrap" unique_id=2061070758]
+layout_mode = 0
+offset_top = 38.0
+offset_bottom = 38.0
 theme_override_colors/font_color = Color(0.81, 0.91, 1, 0.8)
+theme_override_fonts/font = ExtResource("2_qui0h")
 theme_override_font_sizes/font_size = 11
+text = "КОРПУС"
 
-[node name="HullBarBG" type="ColorRect" parent="Root/BarsWrap"]
-position = Vector2(0, 54)
-size = Vector2(260, 14)
+[node name="HullBarBG" type="ColorRect" parent="Root/BarsWrap" unique_id=1173154674]
+layout_mode = 0
+offset_top = 54.0
+offset_right = 260.0
+offset_bottom = 68.0
 color = Color(1, 1, 1, 0.08)
 
-[node name="HullFill" type="ColorRect" parent="Root/BarsWrap/HullBarBG"]
-size = Vector2(260, 14)
+[node name="HullFill" type="ColorRect" parent="Root/BarsWrap/HullBarBG" unique_id=1631502597]
+layout_mode = 0
+offset_right = 260.0
+offset_bottom = 14.0
 color = Color(0.34, 1, 0.56, 1)
 
-[node name="Stats" type="VBoxContainer" parent="Root"]
+[node name="Stats" type="VBoxContainer" parent="Root" unique_id=120214276]
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -240.0
 offset_top = 16.0
 offset_right = -16.0
 
-[node name="ScoreLabel" type="Label" parent="Root/Stats"]
+[node name="ScoreLabel" type="Label" parent="Root/Stats" unique_id=1001936219]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vrfts")
 text = "Очки: 0"
 horizontal_alignment = 2
 
-[node name="LevelLabel" type="Label" parent="Root/Stats"]
+[node name="LevelLabel" type="Label" parent="Root/Stats" unique_id=951859358]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vrfts")
 text = "Уровень: 1"
 horizontal_alignment = 2
 
-[node name="KillsLabel" type="Label" parent="Root/Stats"]
+[node name="KillsLabel" type="Label" parent="Root/Stats" unique_id=934479995]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vrfts")
 text = "Убито пиратов: 0"
 horizontal_alignment = 2
 
-[node name="NoticeLabel" type="Label" parent="Root"]
+[node name="NoticeLabel" type="Label" parent="Root" unique_id=527456375]
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -200.0
 offset_top = 70.0
 offset_right = 200.0
-horizontal_alignment = 1
 theme_override_font_sizes/font_size = 20
-text = ""
+horizontal_alignment = 1
 
-[node name="WarnLabel" type="Label" parent="Root"]
+[node name="WarnLabel" type="Label" parent="Root" unique_id=229547601]
+layout_mode = 1
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -340.0
+offset_left = -444.0
 offset_top = -32.0
-offset_right = -16.0
-horizontal_alignment = 2
+offset_right = 1.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0.36, 0.36, 1)
+theme_override_fonts/font = ExtResource("2_qui0h")
 text = "ТОПЛИВО НА НУЛЕ — двигатели заглохли"
+horizontal_alignment = 2
 
-[node name="ControlsLabel" type="Label" parent="Root"]
+[node name="ControlsLabel" type="Label" parent="Root" unique_id=1688152928]
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
@@ -93,17 +127,21 @@ offset_top = -48.0
 offset_right = 760.0
 offset_bottom = -8.0
 theme_override_colors/font_color = Color(0.81, 0.91, 1, 0.55)
+theme_override_fonts/font = ExtResource("4_0mc3e")
 theme_override_font_sizes/font_size = 11
-text = "ЛКМ — тяга вперёд (по курсору) | ПКМ — огонь | W A S D — маневрирование\nSHIFT — тормоз | ПРОБЕЛ — форсаж | корабль всегда смотрит на курсор"
+text = "ЛКМ — тяга вперёд (по курсору) | ПКМ — огонь | W A S D — маневрирование
+SHIFT — тормоз | ПРОБЕЛ — форсаж | корабль всегда смотрит на курсор"
 
-[node name="GameOverPanel" type="ColorRect" parent="Root"]
+[node name="GameOverPanel" type="ColorRect" parent="Root" unique_id=597378708]
 visible = false
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.016, 0.024, 0.047, 0.88)
 mouse_filter = 1
+color = Color(0.016, 0.024, 0.047, 0.88)
 
-[node name="VBox" type="VBoxContainer" parent="Root/GameOverPanel"]
+[node name="VBox" type="VBoxContainer" parent="Root/GameOverPanel" unique_id=1309753708]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -114,19 +152,23 @@ offset_right = 160.0
 offset_bottom = 90.0
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Root/GameOverPanel/VBox"]
-text = "КОРАБЛЬ УНИЧТОЖЕН"
-horizontal_alignment = 1
+[node name="TitleLabel" type="Label" parent="Root/GameOverPanel/VBox" unique_id=157536203]
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.36, 0.36, 1)
 theme_override_font_sizes/font_size = 30
+text = "КОРАБЛЬ УНИЧТОЖЕН"
+horizontal_alignment = 1
 
-[node name="FinalScoreLabel" type="Label" parent="Root/GameOverPanel/VBox"]
+[node name="FinalScoreLabel" type="Label" parent="Root/GameOverPanel/VBox" unique_id=1623169597]
+layout_mode = 2
 text = "Финальный счёт: 0"
 horizontal_alignment = 1
 
-[node name="FinalLevelLabel" type="Label" parent="Root/GameOverPanel/VBox"]
+[node name="FinalLevelLabel" type="Label" parent="Root/GameOverPanel/VBox" unique_id=750401575]
+layout_mode = 2
 text = "Достигнутый уровень: 1"
 horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="Root/GameOverPanel/VBox"]
+[node name="RestartButton" type="Button" parent="Root/GameOverPanel/VBox" unique_id=1092886181]
+layout_mode = 2
 text = "ЗАНОВО"

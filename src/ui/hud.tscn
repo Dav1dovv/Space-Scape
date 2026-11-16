@@ -1,0 +1,211 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/ui/hud.gd" id="1_hud"]
+[ext_resource type="Script" path="res://src/ui/hud_overlay.gd" id="2_overlay"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Conthrax-SemiBold.otf" id="3_conthrax"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/Zekton-Regular.otf" id="4_zekton"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/HemiHead-Bold.otf" id="5_hemi"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Overlay" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_overlay")
+
+[node name="BarsWrap" type="Control" parent="Root"]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 276.0
+offset_bottom = 96.0
+mouse_filter = 2
+
+[node name="FuelLabel" type="Label" parent="Root/BarsWrap"]
+layout_mode = 0
+theme_override_colors/font_color = Color(0.81, 0.91, 1, 0.8)
+theme_override_fonts/font = ExtResource("3_conthrax")
+theme_override_font_sizes/font_size = 11
+text = "ТОПЛИВО"
+
+[node name="FuelBarBG" type="ColorRect" parent="Root/BarsWrap"]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 260.0
+offset_bottom = 30.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.08)
+
+[node name="FuelFill" type="ColorRect" parent="Root/BarsWrap/FuelBarBG"]
+layout_mode = 0
+offset_right = 260.0
+offset_bottom = 14.0
+mouse_filter = 2
+color = Color(0.3, 0.85, 1, 1)
+
+[node name="HullLabel" type="Label" parent="Root/BarsWrap"]
+layout_mode = 0
+offset_top = 38.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0.81, 0.91, 1, 0.8)
+theme_override_fonts/font = ExtResource("3_conthrax")
+theme_override_font_sizes/font_size = 11
+text = "КОРПУС"
+
+[node name="HullBarBG" type="ColorRect" parent="Root/BarsWrap"]
+layout_mode = 0
+offset_top = 54.0
+offset_right = 260.0
+offset_bottom = 68.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.08)
+
+[node name="HullFill" type="ColorRect" parent="Root/BarsWrap/HullBarBG"]
+layout_mode = 0
+offset_right = 260.0
+offset_bottom = 14.0
+mouse_filter = 2
+color = Color(0.34, 1, 0.56, 1)
+
+[node name="Stats" type="VBoxContainer" parent="Root"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -260.0
+offset_top = 16.0
+offset_right = -16.0
+mouse_filter = 2
+
+[node name="ScoreLabel" type="Label" parent="Root/Stats"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_zekton")
+text = "Очки: 0"
+horizontal_alignment = 2
+
+[node name="LevelLabel" type="Label" parent="Root/Stats"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_zekton")
+text = "Уровень: 1"
+horizontal_alignment = 2
+
+[node name="KillsLabel" type="Label" parent="Root/Stats"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_zekton")
+text = "Убито пиратов: 0"
+horizontal_alignment = 2
+
+[node name="SpeedLabel" type="Label" parent="Root/Stats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.81, 0.91, 1, 0.8)
+theme_override_fonts/font = ExtResource("4_zekton")
+text = "Скорость: 0 м/с"
+horizontal_alignment = 2
+
+[node name="AssistLabel" type="Label" parent="Root/Stats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.81, 0.91, 1, 0.6)
+theme_override_fonts/font = ExtResource("4_zekton")
+theme_override_font_sizes/font_size = 12
+text = "Ассистент: ВКЛ"
+horizontal_alignment = 2
+
+[node name="NoticeLabel" type="Label" parent="Root"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 70.0
+offset_right = 250.0
+theme_override_fonts/font = ExtResource("3_conthrax")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="WarnLabel" type="Label" parent="Root"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -32.0
+offset_right = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.36, 0.36, 1)
+theme_override_fonts/font = ExtResource("3_conthrax")
+text = "ТОПЛИВО НА НУЛЕ — двигатели заглохли"
+horizontal_alignment = 2
+
+[node name="ControlsLabel" type="Label" parent="Root"]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -48.0
+offset_right = 900.0
+offset_bottom = -8.0
+theme_override_colors/font_color = Color(0.81, 0.91, 1, 0.55)
+theme_override_fonts/font = ExtResource("5_hemi")
+theme_override_font_sizes/font_size = 11
+text = "МЫШЬ — прицел (корабль следует) | Q/E — крен | W/S — тяга | A/D — стрейф | ПРОБЕЛ/CTRL — вверх/вниз
+ЛКМ — огонь | SHIFT — форсаж | X — тормоз | Z — ассистент полёта | R — прицел на нос | [ ] — чувствительность | ESC — курсор"
+
+[node name="GameOverPanel" type="ColorRect" parent="Root"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.016, 0.024, 0.047, 0.88)
+
+[node name="VBox" type="VBoxContainer" parent="Root/GameOverPanel"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -90.0
+offset_right = 180.0
+offset_bottom = 90.0
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Root/GameOverPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.36, 0.36, 1)
+theme_override_fonts/font = ExtResource("3_conthrax")
+theme_override_font_sizes/font_size = 30
+text = "КОРАБЛЬ УНИЧТОЖЕН"
+horizontal_alignment = 1
+
+[node name="FinalScoreLabel" type="Label" parent="Root/GameOverPanel/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_zekton")
+text = "Финальный счёт: 0"
+horizontal_alignment = 1
+
+[node name="FinalLevelLabel" type="Label" parent="Root/GameOverPanel/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_zekton")
+text = "Достигнутый уровень: 1"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="Root/GameOverPanel/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_conthrax")
+text = "ЗАНОВО"

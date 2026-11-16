@@ -14,13 +14,25 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Void Drifter Prototype"
-run/main_scene="res://Main.tscn"
+config/name="Void Drifter 3D"
+run/main_scene="res://src/game/world/world.tscn"
 config/features=PackedStringArray("4.7")
 
 [autoload]
 
 GameState="*res://GameState.gd"
+Events="*res://src/core/autoload/events.gd"
+Game="*res://src/core/autoload/game.gd"
+
+[layer_names]
+
+3d_physics/layer_1="player"
+3d_physics/layer_2="asteroids"
+3d_physics/layer_3="enemies"
+
+[physics]
+
+common/physics_interpolation=true
 
 [rendering]
 

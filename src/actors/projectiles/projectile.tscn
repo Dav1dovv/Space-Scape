@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/actors/projectiles/projectile.gd" id="1_script"]
+
+[sub_resource type="BoxMesh" id="Mesh_bolt"]
+size = Vector3(0.12, 0.12, 2.2)
+
+[node name="Projectile" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("Mesh_bolt")

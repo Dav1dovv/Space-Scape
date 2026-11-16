@@ -1,0 +1,72 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/game/world/world.gd" id="1_world"]
+[ext_resource type="Shader" path="res://src/game/world/space_sky.gdshader" id="2_sky"]
+[ext_resource type="PackedScene" path="res://src/actors/player/player_ship.tscn" id="3_player"]
+[ext_resource type="Script" path="res://src/game/camera/chase_camera.gd" id="4_camera"]
+[ext_resource type="Script" path="res://src/game/fx/space_dust.gd" id="5_dust"]
+[ext_resource type="Script" path="res://src/game/systems/spawner.gd" id="6_spawner"]
+[ext_resource type="PackedScene" path="res://src/ui/hud.tscn" id="7_hud"]
+
+[sub_resource type="ShaderMaterial" id="Mat_sky"]
+shader = ExtResource("2_sky")
+
+[sub_resource type="Sky" id="Sky_space"]
+sky_material = SubResource("Mat_sky")
+
+[sub_resource type="Environment" id="Env_space"]
+background_mode = 2
+sky = SubResource("Sky_space")
+ambient_light_source = 2
+ambient_light_color = Color(0.25, 0.3, 0.45, 1)
+ambient_light_energy = 0.6
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 0.9
+glow_bloom = 0.05
+fog_enabled = true
+fog_light_color = Color(0.03, 0.04, 0.08, 1)
+fog_density = 0.006
+fog_sky_affect = 0.0
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_world")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env_space")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-35, 40, 0)
+light_color = Color(1, 0.92, 0.8, 1)
+light_energy = 1.2
+
+[node name="RimLight" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(30, -140, 0)
+light_color = Color(0.45, 0.55, 1, 1)
+light_energy = 0.35
+sky_mode = 1
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="PlayerShip" parent="Actors" instance=ExtResource("3_player")]
+
+[node name="Projectiles" type="Node3D" parent="." groups=["projectile_root"]]
+
+[node name="FX" type="Node3D" parent="." groups=["fx_root"]]
+
+[node name="ChaseCamera" type="Camera3D" parent="."]
+current = true
+fov = 72.0
+far = 1500.0
+script = ExtResource("4_camera")
+target_path = NodePath("../Actors/PlayerShip")
+
+[node name="SpaceDust" type="MultiMeshInstance3D" parent="."]
+script = ExtResource("5_dust")
+player_path = NodePath("../Actors/PlayerShip")
+
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("6_spawner")
+actors_root_path = NodePath("../Actors")
+
+[node name="HUD" parent="." instance=ExtResource("7_hud")]
